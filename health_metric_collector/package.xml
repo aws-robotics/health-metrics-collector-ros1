@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>health_metric_collector</name>
+  <version>1.0.0</version>
+  <description>The health_metric_collector package</description>
+  <url>http://wiki.ros.org/health_metric_collector</url>
+
+  <author email="ros-contributions@amazon.com">AWS RoboMaker</author>
+  <maintainer email="ros-contributions@amazon.com">AWS RoboMaker</maintainer>
+
+  <license>Apache 2.0</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>message_generation</depend>
+  <depend>ros_monitoring_msgs</depend>
+  
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>cloudwatch_metrics_collector</exec_depend>
+</package>
