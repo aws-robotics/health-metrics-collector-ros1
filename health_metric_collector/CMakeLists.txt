@@ -62,18 +62,29 @@ install(TARGETS health_metric_collector
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  include_directories(/usr/include/gmock /usr/src/gmock)
-  add_library(libgmock /usr/src/gmock/src/gmock-all.cc)
-
-  add_rostest_gtest(test_health_metric_collector
-    test/test_health_metric_collector.test
-    test/health_metric_collector_test.cpp
-  )
-
-  target_include_directories(test_health_metric_collector
-    PRIVATE include
-    ${catkin_INCLUDE_DIRS}
-  )
-
-  target_link_libraries(test_health_metric_collector ${catkin_LIBRARIES} libgmock collector_lib)
+  find_package(GMock QUIET)
+  if(GMOCK_FOUND)
+    add_rostest_gmock(test_health_metric_collector
+      test/test_health_metric_collector.test
+      test/health_metric_collector_test.cpp
+    )
+    target_include_directories(test_health_metric_collector
+      PRIVATE include
+      ${catkin_INCLUDE_DIRS}
+      ${GMOCK_INCLUDE_DIRS}
+    )
+    target_link_libraries(test_health_metric_collector ${catkin_LIBRARIES} collector_lib ${GMOCK_BOTH_LIBRARIES})
+  else()
+    include_directories(/usr/include/gmock /usr/src/gmock)
+    add_library(${PROJECT_NAME}_libgmock /usr/src/gmock/src/gmock-all.cc)
+    add_rostest_gtest(test_health_metric_collector
+      test/test_health_metric_collector.test
+      test/health_metric_collector_test.cpp
+    )
+    target_include_directories(test_health_metric_collector
+      PRIVATE include
+      ${catkin_INCLUDE_DIRS}
+    )
+    target_link_libraries(test_health_metric_collector ${catkin_LIBRARIES} collector_lib ${PROJECT_NAME}_libgmock)
+  endif()
 endif()
