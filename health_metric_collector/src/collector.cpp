@@ -25,6 +25,10 @@
 
 #include <vector>
 
+using namespace Aws::Client;
+using namespace ros_monitoring_msgs;
+
+
 #define DEFAULT_INTERVAL_SEC 5
 #define TOPIC_BUFFER_SIZE 1000
 #define INTERVAL_PARAM_NAME "interval"
@@ -36,21 +40,20 @@
 #define INTERVAL_PARAM_NAME "interval"
 #define METRICS_TOPIC_NAME "metrics"
 
-using namespace ros_monitoring_msgs;
 
 int main(int argc, char ** argv)
 {
   ros::init(argc, argv, DEFAULT_NODE_NAME);
 
-  auto param_reader = std::make_shared<Aws::Client::Ros1NodeParameterReader>();
+  auto param_reader = std::make_shared<Ros1NodeParameterReader>();
 
   // get interval param
   double interval = DEFAULT_INTERVAL_SEC;
-  param_reader->ReadDouble(INTERVAL_PARAM_NAME, interval);
+  param_reader->ReadParam(ParameterPath(INTERVAL_PARAM_NAME), interval);
 
   // get robot id
   std::string robot_id = DEFAULT_ROBOT_ID;
-  param_reader->ReadStdString(ROBOT_ID_DIMENSION, robot_id);
+  param_reader->ReadParam(ParameterPath(ROBOT_ID_DIMENSION), robot_id);
 
   // advertise
   ros::NodeHandle public_nh;

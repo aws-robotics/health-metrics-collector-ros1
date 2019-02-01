@@ -18,7 +18,6 @@
 #include <health_metric_collector/metric_collector.h>
 #include <health_metric_collector/metric_manager.h>
 
-using namespace ros_monitoring_msgs;
 
 /**
  * @brief collects metrics from sysinfo.
@@ -29,7 +28,8 @@ using namespace ros_monitoring_msgs;
 class SysInfoCollector : public MetricCollectorInterface
 {
 public:
-  SysInfoCollector(MetricManagerInterface & m) : MetricCollectorInterface(m) {}
+  SysInfoCollector(ros_monitoring_msgs::MetricManagerInterface & m)
+    : MetricCollectorInterface(m) {}
 
   void Collect() override final;
 

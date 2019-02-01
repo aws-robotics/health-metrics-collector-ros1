@@ -20,7 +20,11 @@
 #include <fstream>
 #include <iostream>
 
+using namespace ros_monitoring_msgs;
+
+
 #define MEGA (1000000)
+
 
 void SysInfoCollector::Collect()
 {

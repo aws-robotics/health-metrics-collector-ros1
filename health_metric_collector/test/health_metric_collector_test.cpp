@@ -24,7 +24,9 @@
 
 #include <vector>
 
+
 namespace ros_monitoring_msgs {
+
 class MockMetricManager : public MetricManagerInterface
 {
 public:
@@ -43,13 +45,17 @@ public:
   MockMetricCollector(MetricManagerInterface & m) : MetricCollectorInterface(m) {}
   MOCK_METHOD0(Collect, void());
 };
-}  // namespace ros_monitoring_msgs
 
+} // namespace ros_monitoring_msgs
+
+
+using namespace ros_monitoring_msgs;
 using ::testing::Return;
+
 
 TEST(CollectorSuite, Child)
 {
-  ros_monitoring_msgs::MockMetricManager mg;
+  MockMetricManager mg;
 
   std::vector<MetricCollectorInterface *> collectors;
   MockMetricCollector mc(mg);
@@ -69,7 +75,7 @@ TEST(CollectorSuite, Child)
 
 TEST(CollectorSuite, sysinfo)
 {
-  ros_monitoring_msgs::MockMetricManager mg;
+  MockMetricManager mg;
   MetricData md;
   ON_CALL(mg, CreateMetric()).WillByDefault(Return(md));
 
@@ -80,7 +86,7 @@ TEST(CollectorSuite, sysinfo)
 
 TEST(CollectorSuite, cpu_usage_0)
 {
-  ros_monitoring_msgs::MockMetricManager mg;
+  MockMetricManager mg;
   MetricData md;
   ON_CALL(mg, CreateMetric()).WillByDefault(Return(md));
 
@@ -92,7 +98,7 @@ TEST(CollectorSuite, cpu_usage_0)
 
 TEST(CollectorSuite, cpu_usage_1)
 {
-  ros_monitoring_msgs::MockMetricManager mg;
+  MockMetricManager mg;
   MetricData md;
   ON_CALL(mg, CreateMetric()).WillByDefault(Return(md));
 

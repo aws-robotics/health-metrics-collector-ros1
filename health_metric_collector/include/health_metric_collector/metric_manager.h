@@ -21,7 +21,6 @@
 
 #include <vector>
 
-using namespace ros_monitoring_msgs;
 
 namespace ros_monitoring_msgs {
 
@@ -78,4 +77,5 @@ private:
   MetricList mlist_;
   ros_monitoring_msgs::MetricData dimensions_;
 };
+
 }  // namespace ros_monitoring_msgs
