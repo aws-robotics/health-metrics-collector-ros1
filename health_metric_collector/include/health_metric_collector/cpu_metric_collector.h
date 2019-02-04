@@ -20,7 +20,6 @@
 #include <health_metric_collector/metric_collector.h>
 #include <health_metric_collector/metric_manager.h>
 
-using namespace ros_monitoring_msgs;
 
 /**
  * collects cpu usage metric.
@@ -33,7 +32,8 @@ public:
    *
    * @param m metric manager which creates and aggregates metrics.
    */
-  CPUMetricCollector(MetricManagerInterface & m) : MetricCollectorInterface(m) {}
+  CPUMetricCollector(ros_monitoring_msgs::MetricManagerInterface & m)
+    : MetricCollectorInterface(m) {}
 
   /**
    * @brief activates metrics collection.

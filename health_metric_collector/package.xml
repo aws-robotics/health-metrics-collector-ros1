@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>health_metric_collector</name>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
   <description>The health_metric_collector package</description>
   <url>http://wiki.ros.org/health_metric_collector</url>
 
@@ -22,7 +22,6 @@
   <depend>aws_ros1_common</depend>
   
   <exec_depend>message_runtime</exec_depend>
-  <exec_depend>cloudwatch_metrics_collector</exec_depend>
 
   <test_depend>rostest</test_depend>
   <test_depend>google-mock</test_depend>

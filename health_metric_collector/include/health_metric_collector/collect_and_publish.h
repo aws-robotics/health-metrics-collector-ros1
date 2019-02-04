@@ -30,10 +30,9 @@ public:
    * @param mg the metric manager that publishes collected metrics.
    * @param c a list of metrics collectors.
    */
-  CollectAndPublish(MetricManagerInterface & mg, const std::vector<MetricCollectorInterface *> & c)
-  : mg_(mg), collectors_(c)
-  {
-  }
+  CollectAndPublish(ros_monitoring_msgs::MetricManagerInterface & mg,
+                    const std::vector<MetricCollectorInterface *> & c)
+    : mg_(mg), collectors_(c) {}
 
   /**
    * @brief activates all collectors and then publishes the metrics.
@@ -49,6 +48,6 @@ public:
   }
 
 private:
-  MetricManagerInterface & mg_;
+  ros_monitoring_msgs::MetricManagerInterface & mg_;
   const std::vector<MetricCollectorInterface *> & collectors_;
 };

@@ -16,6 +16,9 @@
 #include <health_metric_collector/metric_manager.h>
 #include <ros_monitoring_msgs/MetricDimension.h>
 
+using namespace ros_monitoring_msgs;
+
+
 MetricData ros_monitoring_msgs::MetricManager::CreateMetric() const
 {
   MetricData md;

@@ -20,7 +20,11 @@
 #include <chrono>
 #include <thread>
 
+using namespace ros_monitoring_msgs;
+
+
 #define BASE_METRIC_NAME "cpu_usage_"
+
 
 void CPUMetricCollector::Collect()
 {
