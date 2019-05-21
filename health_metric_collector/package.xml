@@ -20,10 +20,8 @@
   <depend>ros_monitoring_msgs</depend>
   <depend>aws_common</depend>
   <depend>aws_ros1_common</depend>
-  
-  <exec_depend>message_runtime</exec_depend>
 
-  <exec_depend>cloudwatch_metrics_collector</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
 
   <test_depend>rostest</test_depend>
   <test_depend>google-mock</test_depend>
