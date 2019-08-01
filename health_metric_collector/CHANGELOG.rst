@@ -9,8 +9,8 @@ Changelog for package health_metric_collector
   * increment package version
 * Contributors: M. M
 
-Forthcoming
------------
+2.0.1 (2019-08-01)
+------------------
 * update changelog to be compatible with catkin_generate_changelog (`#21 <https://github.com/aws-robotics/health-metrics-collector-ros1/issues/21>`_)
   Signed-off-by: Miaofei <miaofei@amazon.com>
 * increment patch version (`#20 <https://github.com/aws-robotics/health-metrics-collector-ros1/issues/20>`_)
