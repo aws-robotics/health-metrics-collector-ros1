@@ -23,20 +23,18 @@
 using namespace ros_monitoring_msgs;
 
 
-#define MEGA (1000000)
+#define MEGA (1048576.0)
 
 
 void SysInfoCollector::Collect()
 {
   // Obtain system statistics
-  struct sysinfo si
-  {
-  };
+  struct sysinfo si = {0};
   sysinfo(&si);
 
   AddMetric("system_uptime", si.uptime, MetricData::UNIT_SEC);
-  AddMetric("free_ram", si.freeram / MEGA, MetricData::UNIT_MEGABYTES);
-  AddMetric("total_ram", si.totalram / MEGA, MetricData::UNIT_MEGABYTES);
+  AddMetric("free_ram", si.freeram * si.mem_unit / MEGA, MetricData::UNIT_MEGABYTES);
+  AddMetric("total_ram", si.totalram * si.mem_unit / MEGA, MetricData::UNIT_MEGABYTES);
   AddMetric("process_count", si.procs, MetricData::UNIT_NONE);
 }
 
