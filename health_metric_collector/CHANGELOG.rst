@@ -9,8 +9,8 @@ Changelog for package health_metric_collector
   * increment package version
 * Contributors: M. M
 
-Forthcoming
------------
+2.0.2 (2020-03-28)
+------------------
 * Merge pull request `#25 <https://github.com/aws-robotics/health-metrics-collector-ros1/issues/25>`_ from aws-robotics/version_2.0.2
   Bumpinng package version to match bloom release
 * Bumpinng package version to match bloom release
