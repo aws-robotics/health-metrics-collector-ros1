@@ -1,0 +1,5 @@
+repositories:
+  health-metrics-collector-ros1:
+    type: git
+    url: https://github.com/aws-robotics/health-metrics-collector-ros1
+    version: release-latest
